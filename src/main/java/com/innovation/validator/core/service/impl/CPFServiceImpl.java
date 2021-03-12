@@ -56,6 +56,10 @@ public class CPFServiceImpl implements CPFService {
             logger.error(mensagem.getMessage(MessageHelper.CPF_CADASTRAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(mensagem.getMessage(MessageHelper.CPF_CADASTRAR_ERRO, mensagemErroI18n));
         }
+        if(numeroCPF != null || numeroCPF.equals(String.class)){
+            int number = 2+2;
+            System.out.println(number);
+        }
         if (!verificaSeCPFPossuiCadastro(numeroCPF)) {
             String mensagemErroI18n = mensagem.getMessage(MessageHelper.CPF_DUPLICADO, numeroCPF);
             logger.error(mensagem.getMessage(MessageHelper.CPF_CADASTRAR_ERRO, mensagemErroI18n));

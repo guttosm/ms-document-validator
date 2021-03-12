@@ -54,6 +54,7 @@ Ctrl + C
 - [Swagger-UI](https://localhost:8500)
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=guttosm_ms-document-validator)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c82a8465162e4b2784265e671d459fe2)](https://www.codacy.com/gh/guttosm/ms-document-validator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guttosm/ms-document-validator&amp;utm_campaign=Badge_Grade)
 
 ## License
 Copyright (c) 2021 Gus

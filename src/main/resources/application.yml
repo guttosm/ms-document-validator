@@ -1,0 +1,75 @@
+###############################################
+#   CONFIGURA\u00C7\u00D5ES DO MICROSERVICO   #
+###############################################
+validator:
+  request:
+    mapping:
+      root:
+      domain: /validator
+      cpf:
+        validaNumero: /cpf/validar
+        cadastroCPF: /cpf/cadastro
+        listarCPF: /cpf/listagem
+      cnpj:
+        validaNumero: /cnpj/validar
+        cadastroCNPJ: /cnpj/cadastro
+        listarCNPJ: /cnpj/listagem
+    kafka:
+      topic:
+        name: x
+        retry: x
+        dlq: x
+
+###############################################
+#     CONFIGURA\u00C7\u00D5ES DO SPRINGBOOT   #
+###############################################
+spring:
+  application:
+    name: validator-document
+  data:
+    mongodb:
+      uri: mongodb://mongo-validator:123@localhost:27017/validator
+  kafka:
+    producer:
+      bootstrap-servers: 0.0.0.0:9092
+      key-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: 1
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  #jackson:
+    #time-zone:
+
+server:
+  port: 8500
+  servlet:
+    display-name: ${spring.application.name}
+
+logging:
+  level:
+    root: WARN
+    com.innovation: WARN
+    org.springframework.*: WARN
+
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: refresh, mappings, httptrace, metrics, heapdump, loggers, info, env, logfile, health, configprops
+    enabled-by-default: true
+  endpoint:
+    health:
+      show-details: always
+  info:
+    git:
+      mode: full
+
+messages:
+  basename: messages
+  default:
+    country: BR
+    language: PT
+    encoding: UTF-8

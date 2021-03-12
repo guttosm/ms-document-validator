@@ -20,4 +20,8 @@ public class CPF {
     private String id;
     private List<String> numero;
 
+    private String nome;
+    
+    private Integer number;
+    
 }

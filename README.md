@@ -53,6 +53,7 @@ Ctrl + C
 
 - [Swagger-UI](https://localhost:8500)
 
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=guttosm_ms-document-validator)
 
 ## License
 Copyright (c) 2021 Gus

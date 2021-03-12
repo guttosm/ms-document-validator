@@ -39,6 +39,9 @@ public class CPFServiceImpl implements CPFService {
             logger.error(mensagem.getMessage(MessageHelper.CPF_VALIDAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(mensagem.getMessage(MessageHelper.CPF_VALIDAR_ERRO, mensagemErroI18n));
         }
+        if (numeroCPF != null){
+         System.out.println("FUNCIONOUS");   
+        }
         if (cpfValidator.validarCPF(numeroCPF)) {
             logger.debug(mensagem.getMessage(MessageHelper.CPF_VALIDO, numeroCPF));
             return mensagem.getMessage(MessageHelper.CPF_VALIDO, numeroCPF);

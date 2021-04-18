@@ -1,6 +1,6 @@
 package com.innovation.validator.core.util.converter;
 
-import com.innovation.validator.core.model.mongo.CPF;
+import com.innovation.validator.core.model.mongo.Customer;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
@@ -8,12 +8,12 @@ import org.springframework.util.ObjectUtils;
 import java.util.Arrays;
 
 @Component
-public class StringToCPFConverter implements Converter<String, CPF> {
+public class StringToCPFConverter implements Converter<String, Customer> {
 
     @Override
-    public CPF convert(String numeroCPF) {
+    public Customer convert(String numeroCPF) {
         if (!ObjectUtils.isEmpty(numeroCPF)) {
-            return CPF.builder()
+            return Customer.builder()
                     .numero(Arrays.asList(numeroCPF))
                     .build();
         }

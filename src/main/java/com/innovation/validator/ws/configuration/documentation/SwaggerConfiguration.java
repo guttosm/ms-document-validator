@@ -33,11 +33,9 @@ public class SwaggerConfiguration {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("API - Validate Brazilian Document's")
-                .description("Validation of CPF and CNPJs")
+                .description("Study")
                 .version("1.0")
                 .build();
     }
 
 }
-
-

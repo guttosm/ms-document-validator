@@ -1,6 +1,6 @@
 package com.innovation.validator.ws.contract;
 
-import com.innovation.validator.core.model.mongo.CNPJ;
+import com.innovation.validator.core.model.mongo.Company;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,8 +13,8 @@ public interface CNPJContract {
     ResponseEntity<String> validadarCNPJ(String numeroCNPJ);
 
     @PostMapping(value = "${validator.request.mapping.cnpj.cadastroCNPJ}")
-    ResponseEntity<CNPJ> cadastrarCNPJ(String numeroCNPJ);
+    ResponseEntity<Company> cadastrarCNPJ(String numeroCNPJ);
 
     @GetMapping(value = "${validator.request.mapping.cnpj.listarCNPJ}")
-    ResponseEntity<List<CNPJ>> listarCNPJ();
+    ResponseEntity<List<Company>> listarCNPJ();
 }

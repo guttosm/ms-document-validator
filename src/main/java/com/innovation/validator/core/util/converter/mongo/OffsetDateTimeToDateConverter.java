@@ -13,4 +13,5 @@ public class OffsetDateTimeToDateConverter implements Converter<OffsetDateTime, 
     public Date convert(OffsetDateTime source){
         return source == null ? null : Date.from(source.toInstant());
     }
+
 }

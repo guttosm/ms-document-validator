@@ -1,7 +1,7 @@
 package com.innovation.validator.core.service.impl;
 
 import com.innovation.validator.core.service.KafkaService;
-import com.innovation.validator.core.util.Mensagem;
+import com.innovation.validator.core.util.SourceMessage;
 import com.innovation.validator.ws.configuration.MessageDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class KafkaServiceImpl implements KafkaService {
 
-    private final Mensagem mensagem;
+    private final SourceMessage sourceMessage;
     private final KafkaTemplate kafkaTemplate;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -32,17 +32,17 @@ public class KafkaServiceImpl implements KafkaService {
 
     @Override
     public void sendMessage(final String kafkaTopicName, final String eventName, final MessageDTO messageIsGonaBeSendToKafka) {
-        if (!ObjectUtils.isEmpty(messageIsGonaBeSendToKafka)){
+        if (!ObjectUtils.isEmpty(messageIsGonaBeSendToKafka)) {
             Message message = MessageBuilder
-                   .withPayload(messageIsGonaBeSendToKafka)
-                   .setHeader(KafkaHeaders.TOPIC, kafkaTopicName)
-                   .setHeader("contentType", MediaType.APPLICATION_JSON)
-                   .setHeader("applicationName",applicationName)
-                   .setHeader("eventId", UUID.randomUUID())
-                   .setHeader("eventName", eventName)
-                   .setHeader("correlationId",UUID.randomUUID())
-                   .build();
-           kafkaTemplate.send(message);
+                    .withPayload(messageIsGonaBeSendToKafka)
+                    .setHeader(KafkaHeaders.TOPIC, kafkaTopicName)
+                    .setHeader("contentType", MediaType.APPLICATION_JSON)
+                    .setHeader("applicationName", applicationName)
+                    .setHeader("eventId", UUID.randomUUID())
+                    .setHeader("eventName", eventName)
+                    .setHeader("correlationId", UUID.randomUUID())
+                    .build();
+            kafkaTemplate.send(message);
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.innovation.validator.ws.controller;
 
-import com.innovation.validator.core.model.mongo.CNPJ;
+import com.innovation.validator.core.model.mongo.Company;
 import com.innovation.validator.core.service.CNPJService;
 import com.innovation.validator.ws.contract.CNPJContract;
 import io.swagger.annotations.Api;
@@ -30,12 +30,12 @@ public class CNPJController implements CNPJContract {
     }
 
     @Override
-    public ResponseEntity<CNPJ> cadastrarCNPJ(String numeroCNPJ) {
+    public ResponseEntity<Company> cadastrarCNPJ(String numeroCNPJ) {
         return ResponseEntity.status(HttpStatus.CREATED).body(cnpjService.cadastrarCNPJ(numeroCNPJ));
     }
 
     @Override
-    public ResponseEntity<List<CNPJ>> listarCNPJ() {
+    public ResponseEntity<List<Company>> listarCNPJ() {
         return ResponseEntity.status(HttpStatus.OK).body(cnpjService.listarCNPJs());
     }
 }

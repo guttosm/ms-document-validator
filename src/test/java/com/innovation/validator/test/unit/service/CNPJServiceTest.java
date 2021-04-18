@@ -1,7 +1,7 @@
 package com.innovation.validator.test.unit.service;
 
 import com.innovation.validator.core.service.impl.CNPJServiceImpl;
-import com.innovation.validator.core.util.Mensagem;
+import com.innovation.validator.core.util.SourceMessage;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
@@ -19,6 +19,6 @@ public class CNPJServiceTest {
     private CNPJServiceImpl cnpjService;
 
     @Mock
-    private Mensagem mensagem;
+    private SourceMessage mensagem;
 
 }

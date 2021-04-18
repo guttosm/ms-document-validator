@@ -20,11 +20,11 @@ public class JacksonConfiguration {
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true)
                 .configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
-        configurarOpcoesData(objectMapper);
+        configurationDataOptions(objectMapper);
         return objectMapper;
     }
 
-    private void configurarOpcoesData(ObjectMapper mapper) {
+    private void configurationDataOptions(ObjectMapper mapper) {
         JavaTimeModule javaTimeModule = new JavaTimeModule();
         mapper.registerModule(javaTimeModule)
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)

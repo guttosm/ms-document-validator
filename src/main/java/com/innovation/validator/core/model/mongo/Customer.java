@@ -13,11 +13,11 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "pessoa-fisica")
-public class CPF {
+@Document(collection = "customer")
+public class Customer {
 
     @Id
     private String id;
-    private List<String> numero;
+    private String number;
 
 }

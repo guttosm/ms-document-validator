@@ -1,6 +1,6 @@
 package com.innovation.validator.ws.controller;
 
-import com.innovation.validator.core.model.mongo.CPF;
+import com.innovation.validator.core.model.mongo.Customer;
 import com.innovation.validator.core.service.CPFService;
 import com.innovation.validator.ws.contract.CPFContract;
 import io.swagger.annotations.Api;
@@ -30,12 +30,12 @@ public class CPFController implements CPFContract {
     }
 
     @Override
-    public ResponseEntity<CPF> cadastrarCPF(String numeroCPF) {
+    public ResponseEntity<Customer> cadastrarCPF(String numeroCPF) {
         return ResponseEntity.status(HttpStatus.CREATED).body(cpfService.cadastrarCPF(numeroCPF));
     }
 
     @Override
-    public ResponseEntity<List<CPF>> listarCPF() {
+    public ResponseEntity<List<Customer>> listarCPF() {
         return ResponseEntity.status(HttpStatus.OK).body(cpfService.listarCPFs());
     }
 

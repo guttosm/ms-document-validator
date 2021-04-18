@@ -13,11 +13,11 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "pessoa-juridica")
-public class CNPJ {
+@Document(collection = "company")
+public class Company {
 
     @Id
     private UUID id;
-    private String numero;
+    private String number;
 
 }

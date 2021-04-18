@@ -1,6 +1,6 @@
 package com.innovation.validator.ws.contract;
 
-import com.innovation.validator.core.model.mongo.CPF;
+import com.innovation.validator.core.model.mongo.Customer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,9 +14,9 @@ public interface CPFContract {
     ResponseEntity<String> validadarCPF(@RequestParam String numeroCPF);
 
     @PostMapping(value = "${validator.request.mapping.cpf.cadastroCPF}")
-    ResponseEntity<CPF> cadastrarCPF(@RequestParam String numeroCPF);
+    ResponseEntity<Customer> cadastrarCPF(@RequestParam String numeroCPF);
 
     @GetMapping(value = "${validator.request.mapping.cpf.listarCPF}")
-    ResponseEntity<List<CPF>> listarCPF();
+    ResponseEntity<List<Customer>> listarCPF();
 
 }

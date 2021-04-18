@@ -28,7 +28,7 @@ public class CNPJValidator {
         return cnpjLimpo.equals(cnpjLimpo.substring(0, 12) + digito1.toString() + digito2.toString());
     }
 
-    private Integer calculaDigitoCNPJ(String cnpj, int[] peso) {
+    public Integer calculaDigitoCNPJ(String cnpj, int[] peso) {
         logger.info("Iniciando calculo dos dígitos verificadores");
         int somaValorCNPJ = 0;
         for (int indice = cnpj.length() - 1; indice >= 0; indice--) {
@@ -39,7 +39,7 @@ public class CNPJValidator {
         return somaValorCNPJ > 9 ? 0 : somaValorCNPJ;
     }
 
-    private String removeCaracteresDoCNPJ(String cnpj) {
+    public String removeCaracteresDoCNPJ(String cnpj) {
         logger.info("Removing all characters except numbers");
         return cnpj.replaceAll("[^0-9]", "");
     }

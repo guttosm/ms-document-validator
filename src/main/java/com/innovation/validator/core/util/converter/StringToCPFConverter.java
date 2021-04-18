@@ -11,10 +11,10 @@ import java.util.Arrays;
 public class StringToCPFConverter implements Converter<String, Customer> {
 
     @Override
-    public Customer convert(String numeroCPF) {
-        if (!ObjectUtils.isEmpty(numeroCPF)) {
+    public Customer convert(String cpfNumber) {
+        if (!ObjectUtils.isEmpty(cpfNumber)) {
             return Customer.builder()
-                    .numero(Arrays.asList(numeroCPF))
+                    .number(cpfNumber)
                     .build();
         }
         return null;

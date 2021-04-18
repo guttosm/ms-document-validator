@@ -9,10 +9,10 @@ import org.springframework.util.ObjectUtils;
 public class StringToCNPJConverter implements Converter<String, Company> {
 
     @Override
-    public Company convert(String numeroCNPJ) {
-        if (!ObjectUtils.isEmpty(numeroCNPJ)) {
+    public Company convert(String cnpjNumber) {
+        if (!ObjectUtils.isEmpty(cnpjNumber)) {
             return Company.builder()
-                    .numero(numeroCNPJ)
+                    .number(cnpjNumber)
                     .build();
         }
         return null;

@@ -1,6 +1,9 @@
 package com.innovation.validator.core.util.helper;
 
 public class MessageHelper {
+
+    private MessageHelper(){}
+
     public static final String CPF_VAZIO = "cpf.vazio";
     public static final String CPF_VALIDAR_ERRO = "cpf.validar.erro";
     public static final String CPF_CADASTRAR_ERRO = "cpf.cadastrar.erro";

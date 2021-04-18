@@ -1,5 +1,9 @@
 # Document Validator API
-AC
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guttosm_ms-document-validator&metric=bugs)](https://sonarcloud.io/dashboard?id=guttosm_ms-document-validator)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guttosm_ms-document-validator&metric=coverage)](https://sonarcloud.io/dashboard?id=guttosm_ms-document-validator)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=guttosm_ms-document-validator&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=guttosm_ms-document-validator)
+
 This project was developed only for study purpose, and only consists in an application that validates a CPF or CNPJ.
 
 ## Installation

@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @RunWith(JUnitPlatform.class)
 @ExtendWith({MockitoExtension.class})
-public class CompanyServiceTest {
+class CompanyServiceTest {
 
     @Spy
     @InjectMocks

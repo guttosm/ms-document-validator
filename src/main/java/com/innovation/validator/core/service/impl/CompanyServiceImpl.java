@@ -47,12 +47,12 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public Company createCompany(String numeroCNPJ) {
         numeroCNPJ = numeroCNPJ.replaceAll("[^0-9]", "");
-        if (!cnpjValidator.documentValidation(numeroCNPJ)) {
+        if (Boolean.FALSE.equals(cnpjValidator.documentValidation(numeroCNPJ))) {
             String mensagemErroI18n = sourceMessage.getMessage(MessageHelper.CNPJ_INVALIDO, numeroCNPJ);
             logger.error(sourceMessage.getMessage(MessageHelper.CNPJ_CADASTRAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(sourceMessage.getMessage(MessageHelper.CNPJ_CADASTRAR_ERRO, mensagemErroI18n));
         }
-        if (!verificaSeCNPJPossuiCadastro(numeroCNPJ)) {
+        if (Boolean.TRUE.equals(verificaSeCNPJPossuiCadastro(numeroCNPJ))) {
             String mensagemErroI18n = sourceMessage.getMessage(MessageHelper.CNPJ_DUPLICADO, numeroCNPJ);
             logger.error(sourceMessage.getMessage(MessageHelper.CNPJ_CADASTRAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(sourceMessage.getMessage(MessageHelper.CNPJ_CADASTRAR_ERRO, mensagemErroI18n));

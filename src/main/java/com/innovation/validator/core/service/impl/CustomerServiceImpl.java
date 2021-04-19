@@ -51,12 +51,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer createCustomer(String numeroCPF) {
         numeroCPF = numeroCPF.replaceAll("[^0-9]", "");
-        if (!cpfValidator.documentValidation(numeroCPF)) {
+        if (Boolean.FALSE.equals(cpfValidator.documentValidation(numeroCPF))) {
             String mensagemErroI18n = sourceMessage.getMessage(MessageHelper.CPF_INVALIDO, numeroCPF);
             logger.error(sourceMessage.getMessage(MessageHelper.CPF_CADASTRAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(sourceMessage.getMessage(MessageHelper.CPF_CADASTRAR_ERRO, mensagemErroI18n));
         }
-        if (!verificaSeCPFPossuiCadastro(numeroCPF)) {
+        if (Boolean.TRUE.equals(verificaSeCPFPossuiCadastro(numeroCPF))) {
             String mensagemErroI18n = sourceMessage.getMessage(MessageHelper.CPF_DUPLICADO, numeroCPF);
             logger.error(sourceMessage.getMessage(MessageHelper.CPF_CADASTRAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(sourceMessage.getMessage(MessageHelper.CPF_CADASTRAR_ERRO, mensagemErroI18n));

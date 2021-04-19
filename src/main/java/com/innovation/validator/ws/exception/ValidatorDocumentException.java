@@ -1,7 +1,5 @@
 package com.innovation.validator.ws.exception;
 
-import java.util.List;
-
 public class ValidatorDocumentException extends RuntimeException {
 
     public ValidatorDocumentException(String message) {
@@ -18,10 +16,6 @@ public class ValidatorDocumentException extends RuntimeException {
 
     public ValidatorDocumentException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
-    }
-
-    public ValidatorDocumentException(String message, List<String> reasons) {
-        super(message);
     }
 
     public ValidatorDocumentException(String message, String reason) {

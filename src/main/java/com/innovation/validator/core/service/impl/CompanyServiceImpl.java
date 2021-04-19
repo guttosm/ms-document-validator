@@ -2,7 +2,7 @@ package com.innovation.validator.core.service.impl;
 
 import com.innovation.validator.core.model.mongo.Company;
 import com.innovation.validator.core.repository.CompanyRepository;
-import com.innovation.validator.core.service.CNPJService;
+import com.innovation.validator.core.service.CompanyService;
 import com.innovation.validator.core.util.SourceMessage;
 import com.innovation.validator.core.util.converter.StringToCNPJConverter;
 import com.innovation.validator.core.util.helper.MessageHelper;
@@ -20,7 +20,7 @@ import java.util.List;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class CNPJServiceImpl implements CNPJService {
+public class CompanyServiceImpl implements CompanyService {
 
     private final SourceMessage sourceMessage;
     private final CNPJValidator cnpjValidator;
@@ -29,25 +29,25 @@ public class CNPJServiceImpl implements CNPJService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public String validarCNPJ(String numeroCNPJ) {
+    public String validateCnpjCompanyNumber(String numeroCNPJ) {
         if (ObjectUtils.isEmpty(numeroCNPJ)) {
             String mensagemErroI18n = sourceMessage.getMessage(MessageHelper.CNPJ_VAZIO, numeroCNPJ);
             logger.error(sourceMessage.getMessage(MessageHelper.CNPJ_VALIDAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(sourceMessage.getMessage(MessageHelper.CNPJ_VALIDAR_ERRO, mensagemErroI18n));
         }
-        if (cnpjValidator.validarCNPJ(numeroCNPJ)) {
+        if (cnpjValidator.documentValidation(numeroCNPJ)) {
             logger.debug(sourceMessage.getMessage(MessageHelper.CNPJ_VALIDO, numeroCNPJ));
             return sourceMessage.getMessage(MessageHelper.CNPJ_VALIDO, numeroCNPJ);
-        } else {
-            logger.debug(sourceMessage.getMessage(MessageHelper.CNPJ_INVALIDO, numeroCNPJ));
-            return sourceMessage.getMessage(MessageHelper.CNPJ_INVALIDO, numeroCNPJ);
         }
+        logger.debug(sourceMessage.getMessage(MessageHelper.CNPJ_INVALIDO, numeroCNPJ));
+        return sourceMessage.getMessage(MessageHelper.CNPJ_INVALIDO, numeroCNPJ);
+
     }
 
     @Override
-    public Company cadastrarCNPJ(String numeroCNPJ) {
+    public Company createCompany(String numeroCNPJ) {
         numeroCNPJ = numeroCNPJ.replaceAll("[^0-9]", "");
-        if (!cnpjValidator.validarCNPJ(numeroCNPJ)) {
+        if (!cnpjValidator.documentValidation(numeroCNPJ)) {
             String mensagemErroI18n = sourceMessage.getMessage(MessageHelper.CNPJ_INVALIDO, numeroCNPJ);
             logger.error(sourceMessage.getMessage(MessageHelper.CNPJ_CADASTRAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(sourceMessage.getMessage(MessageHelper.CNPJ_CADASTRAR_ERRO, mensagemErroI18n));
@@ -56,13 +56,12 @@ public class CNPJServiceImpl implements CNPJService {
             String mensagemErroI18n = sourceMessage.getMessage(MessageHelper.CNPJ_DUPLICADO, numeroCNPJ);
             logger.error(sourceMessage.getMessage(MessageHelper.CNPJ_CADASTRAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(sourceMessage.getMessage(MessageHelper.CNPJ_CADASTRAR_ERRO, mensagemErroI18n));
-        } else {
-            return companyRepository.insert(cnpjConverter.convert(numeroCNPJ));
         }
+        return companyRepository.insert(cnpjConverter.convert(numeroCNPJ));
     }
 
     @Override
-    public List<Company> listarCNPJs() {
+    public List<Company> getAllCompany() {
         return companyRepository.findAll();
     }
 

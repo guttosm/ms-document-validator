@@ -2,7 +2,8 @@ package com.innovation.validator.core.util.helper;
 
 public class MessageHelper {
 
-    private MessageHelper(){}
+    private MessageHelper(){
+    }
 
     public static final String CPF_VAZIO = "cpf.vazio";
     public static final String CPF_VALIDAR_ERRO = "cpf.validar.erro";
@@ -16,4 +17,5 @@ public class MessageHelper {
     public static final String CNPJ_VALIDO = "cnpj.valido";
     public static final String CNPJ_INVALIDO = "cnpj.invalido" ;
     public static final String CNPJ_DUPLICADO = "cnpj.duplicado";
+
 }

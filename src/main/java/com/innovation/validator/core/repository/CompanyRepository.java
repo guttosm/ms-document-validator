@@ -9,7 +9,7 @@ import java.util.UUID;
 @Repository
 public interface CompanyRepository extends MongoRepository<Company, UUID> {
 
-    Company findCNPJById(UUID id);
+    Company findCompanyById(UUID id);
 
     Company findCNPJByNumber(String cnpjNumber);
 

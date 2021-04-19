@@ -17,8 +17,8 @@ public class CNPJValidator {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public boolean validarCNPJ(String cnpj) {
-        String cnpjLimpo = removeCaracteresDoCNPJ(cnpj);
+    public boolean documentValidation(String cnpj) {
+        String cnpjLimpo = removeLettersAndSpecialCharactersFromDocument(cnpj);
         if (cnpjFalhos.contains(cnpjLimpo) || (cnpjLimpo.length() != 14)) {
             return false;
         }
@@ -39,7 +39,7 @@ public class CNPJValidator {
         return somaValorCNPJ > 9 ? 0 : somaValorCNPJ;
     }
 
-    public String removeCaracteresDoCNPJ(String cnpj) {
+    public String removeLettersAndSpecialCharactersFromDocument(String cnpj) {
         logger.info("Removing all characters except numbers");
         return cnpj.replaceAll("[^0-9]", "");
     }

@@ -1,7 +1,7 @@
 package com.innovation.validator.ws.controller;
 
 import com.innovation.validator.core.model.mongo.Company;
-import com.innovation.validator.core.service.CNPJService;
+import com.innovation.validator.core.service.CompanyService;
 import com.innovation.validator.ws.contract.CNPJContract;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
@@ -20,22 +20,22 @@ import java.util.List;
 @Api(value = "Cadastro e valida\u00E7\u00F5es de CNPJ", tags = "CNPJ")
 public class CNPJController implements CNPJContract {
 
-    private final CNPJService cnpjService;
+    private final CompanyService companyService;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public ResponseEntity<String> validadarCNPJ(String numeroCNPJ) {
         logger.debug("-----------> INICIO DA VALIDA\u00C7\u00C3O DO CNPJ", numeroCNPJ);
-        return ResponseEntity.status(HttpStatus.OK).body(cnpjService.validarCNPJ(numeroCNPJ));
+        return ResponseEntity.status(HttpStatus.OK).body(companyService.validateCnpjCompanyNumber(numeroCNPJ));
     }
 
     @Override
     public ResponseEntity<Company> cadastrarCNPJ(String numeroCNPJ) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(cnpjService.cadastrarCNPJ(numeroCNPJ));
+        return ResponseEntity.status(HttpStatus.CREATED).body(companyService.createCompany(numeroCNPJ));
     }
 
     @Override
     public ResponseEntity<List<Company>> listarCNPJ() {
-        return ResponseEntity.status(HttpStatus.OK).body(cnpjService.listarCNPJs());
+        return ResponseEntity.status(HttpStatus.OK).body(companyService.getAllCompany());
     }
 }

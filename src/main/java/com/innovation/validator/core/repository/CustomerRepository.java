@@ -9,7 +9,7 @@ import java.util.UUID;
 @Repository
 public interface CustomerRepository extends MongoRepository<Customer, UUID> {
 
-    Customer findCPFById(UUID id);
+    Customer findCustomerById(UUID id);
 
     Customer findCPFByNumber(String numeroCPF);
 

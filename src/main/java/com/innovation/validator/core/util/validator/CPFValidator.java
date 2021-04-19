@@ -13,8 +13,8 @@ public class CPFValidator {
             .asList("00000000000", "11111111111", "22222222222", "33333333333", "44444444444",
                     "55555555555", "66666666666", "77777777777", "88888888888", "99999999999");
 
-    public Boolean validarCPF(String cpf) {
-        String cpfLimpo = removeCaracteresDoCPF(cpf);
+    public Boolean documentValidation(String cpf) {
+        String cpfLimpo = removeLettersAndSpecialCharactersFromDocument(cpf);
         if ((cpfLimpo.length() != 11) || cpfFalhos.contains(cpfLimpo)) {
             return false;
         }
@@ -33,7 +33,7 @@ public class CPFValidator {
         return somaValorCPF > 9 ? 0 : somaValorCPF;
     }
 
-    public String removeCaracteresDoCPF(String document) {
+    public String removeLettersAndSpecialCharactersFromDocument(String document) {
         return document.replaceAll("[^0-9]", "");
     }
 }

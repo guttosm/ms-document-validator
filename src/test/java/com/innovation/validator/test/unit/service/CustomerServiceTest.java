@@ -19,7 +19,7 @@ public class CustomerServiceTest {
 
     @Spy
     @InjectMocks
-    private CustomerService customerService;
+    private CustomerServiceImpl customerService;
 
     @Mock
     private SourceMessage sourceMessage;

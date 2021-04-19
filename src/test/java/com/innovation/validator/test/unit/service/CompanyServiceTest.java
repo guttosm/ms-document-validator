@@ -1,6 +1,7 @@
 package com.innovation.validator.test.unit.service;
 
 import com.innovation.validator.core.service.CompanyService;
+import com.innovation.validator.core.service.impl.CompanyServiceImpl;
 import com.innovation.validator.core.util.SourceMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ public class CompanyServiceTest {
 
     @Spy
     @InjectMocks
-    private CompanyService companyService;
+    private CompanyServiceImpl companyService;
 
     @Mock
     private SourceMessage sourceMessage;

@@ -35,7 +35,7 @@ public class CompanyServiceImpl implements CompanyService {
             logger.error(sourceMessage.getMessage(MessageHelper.CNPJ_VALIDAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(sourceMessage.getMessage(MessageHelper.CNPJ_VALIDAR_ERRO, mensagemErroI18n));
         }
-        if (cnpjValidator.documentValidation(numeroCNPJ)) {
+        if (Boolean.TRUE.equals(cnpjValidator.documentValidation(numeroCNPJ))) {
             logger.debug(sourceMessage.getMessage(MessageHelper.CNPJ_VALIDO, numeroCNPJ));
             return sourceMessage.getMessage(MessageHelper.CNPJ_VALIDO, numeroCNPJ);
         }

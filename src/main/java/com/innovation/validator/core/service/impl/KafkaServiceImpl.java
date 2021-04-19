@@ -33,7 +33,7 @@ public class KafkaServiceImpl implements KafkaService {
     @Override
     public void sendMessage(final String kafkaTopicName, final String eventName, final MessageDTO messageIsGonaBeSendToKafka) {
         if (!ObjectUtils.isEmpty(messageIsGonaBeSendToKafka)) {
-            Message message = MessageBuilder
+            Message<MessageDTO> message = MessageBuilder
                     .withPayload(messageIsGonaBeSendToKafka)
                     .setHeader(KafkaHeaders.TOPIC, kafkaTopicName)
                     .setHeader("contentType", MediaType.APPLICATION_JSON)

@@ -39,7 +39,7 @@ public class CustomerServiceImpl implements CustomerService {
             logger.error(sourceMessage.getMessage(MessageHelper.CPF_VALIDAR_ERRO, mensagemErroI18n));
             throw new ValidatorDocumentException(sourceMessage.getMessage(MessageHelper.CPF_VALIDAR_ERRO, mensagemErroI18n));
         }
-        if (cpfValidator.documentValidation(numeroCPF)) {
+        if (Boolean.TRUE.equals(cpfValidator.documentValidation(numeroCPF))) {
             logger.debug(sourceMessage.getMessage(MessageHelper.CPF_VALIDO, numeroCPF));
             return sourceMessage.getMessage(MessageHelper.CPF_VALIDO, numeroCPF);
         }

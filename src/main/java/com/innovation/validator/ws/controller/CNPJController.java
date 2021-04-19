@@ -21,11 +21,9 @@ import java.util.List;
 public class CNPJController implements CNPJContract {
 
     private final CompanyService companyService;
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public ResponseEntity<String> validadarCNPJ(String numeroCNPJ) {
-        logger.debug("-----------> INICIO DA VALIDA\u00C7\u00C3O DO CNPJ", numeroCNPJ);
         return ResponseEntity.status(HttpStatus.OK).body(companyService.validateCnpjCompanyNumber(numeroCNPJ));
     }
 

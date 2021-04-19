@@ -21,11 +21,9 @@ import java.util.List;
 public class CPFController implements CPFContract {
 
     private final CustomerService customerService;
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public ResponseEntity<String> validadarCPF(String numeroCPF) {
-        logger.debug("-----------> INICIO DA VALIDAÇÃO DO CPF", numeroCPF);
         return ResponseEntity.status(HttpStatus.OK).body(customerService.validateCpfCustomerNumber(numeroCPF));
     }
 
